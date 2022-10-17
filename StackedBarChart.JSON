@@ -1,0 +1,244 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500, "height": 300, 
+    "title" : {"text": "GDP Composition by Sector in 2015", "fontSize" : 18},
+    "data": {"url": "https://raw.githubusercontent.com/HungryLo/FIT3179_Ass2/main/stacked_bar_data.csv"},
+    "layer":[{
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Country",
+        "type": "ordinal",
+        "title": "Country",
+        "sort": "-y"
+      },
+      "y": {
+        "field": "Output (USD)",
+        "aggregate": "sum",
+        "type": "quantitative",
+        "title": "GDP by Industry(USD)",
+        "scale" : { "type" : "pow"}
+      },
+      "color": {
+        "field":"Industry",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Agricultural", "Industrial", "Service"],
+          "range": ["#e7ba52", "#c7c7c7", "#aec7e8"]
+        },
+        "title": "Industry",
+        "legend":{
+          "titleFontSize" : 14,
+          "labelFontSize" : 13
+        }
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Output (USD)", "type": "quantitative"}
+      ]
+    }},
+    {
+      "transform": [
+        {"filter": "datum.Country == 'India'" },
+        {
+          "calculate": "'17%'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 60,
+        "dx": 100,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "red"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'India'" },
+        {
+          "calculate": "\"of India's GDP is\"",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 60,
+        "dx": 125,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'India'" },
+        {
+          "calculate": "'from'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 70,
+        "dx": 100,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'India'" },
+        {
+          "calculate": "'Agriculture'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 70,
+        "dx": 125,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "green"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'United States'" },
+        {
+          "calculate": "'80%'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": -120,
+        "dx": -200,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "red"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'United States'" },
+        {
+          "calculate": "'of United States GDP'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": -120,
+        "dx": -180,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+
+    {
+      "transform": [
+        {"filter": "datum.Country == 'United States'" },
+        {
+          "calculate": "'is from the'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": -110,
+        "dx": -200,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'United States'" },
+        {
+          "calculate": "'Service'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": -110,
+        "dx": -150,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "green"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'United States'" },
+        {
+          "calculate": "'industry'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": -110,
+        "dx": -110,
+        "fontSize": 20,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    }
+  
+  
+  
+  ]
+  }
+  

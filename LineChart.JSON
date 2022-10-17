@@ -1,0 +1,254 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500, "height": 350, 
+  "title" : {"text": "GDP per Capita by Region from 2000 to 2010", "fontSize" : 18},
+  "data": {"url": "https://raw.githubusercontent.com/HungryLo/FIT3179_HW4/main/FIT3179_HW_FINAL.csv"},
+  "layer": [{
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year", "type": "nominal"
+    },
+    "y": {
+      "field": "GDP(USD)", "type": "quantitative"
+    },
+    "color": {
+      "field":"Continent",
+      "scale":
+      {"scheme":"dark2"},
+      "legend":{
+        "titleFontSize" : 14,
+        "labelFontSize" : 13
+      }},
+    "tooltip":[
+      {"field":"Year", "type":"nominal"},
+      {"field":"GDP(USD)", "type":"quantitative"} 
+    ]
+  }},
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'Europe' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'Europe experiences the '",
+        "as": "E_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": -130,
+      "dx": 20,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "E_text"},
+      "color": {"value": "black"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'Europe' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'GREATEST FALL'",
+        "as": "E_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": -130,
+      "dx": 130,
+      "fontSize": 20,
+      "fontStyle": "san-serif",
+      "fontWeight":"bolder"
+    },
+    "encoding": {
+      "text": {"field": "E_text"},
+      "color": {"value": "red"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'Europe' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'in GDP'",
+        "as": "E_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": -120,
+      "dx": 20,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "E_text"},
+      "color": {"value": "black"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'Europe' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'due to to the '",
+        "as": "E_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": -120,
+      "dx": 55,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "E_text"},
+      "color": {"value": "black"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'Europe' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'2008 Financial Crisis'",
+        "as": "E_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": -120,
+      "dx": 115,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "E_text"},
+      "color": {"value": "red"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'South America' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'South America'",
+        "as": "SA_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": 50,
+      "dx": 50,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "SA_text"},
+      "color": {"value": "green"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'South America' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'GDP surpasses'",
+        "as": "SA_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": 50,
+      "dx": 118,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "SA_text"},
+      "color": {"value": "black"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'South America' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'East Asia'",
+        "as": "SA_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": 60,
+      "dx": 50,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "SA_text"},
+      "color": {"value": "darkorange"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'South America' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'GDP in'",
+        "as": "SA_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": 60,
+      "dx": 95,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "SA_text"},
+      "color": {"value": "black"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "datum.Continent == 'South America' &&  datum.Year == '2008'" },
+      {
+        "calculate": "'2007'",
+        "as": "SA_text"
+      }
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "dy": 60,
+      "dx": 130,
+      "fontSize": 20,
+      "fontStyle": "san-serif"
+    },
+    "encoding": {
+      "text": {"field": "SA_text"},
+      "color": {"value": "black"}
+    }
+  }
+
+]
+}

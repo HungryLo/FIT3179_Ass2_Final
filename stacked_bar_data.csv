@@ -1,0 +1,31 @@
+﻿Country,Output (USD),Industry
+United States,215364,Agricultural
+United States,3427876,Industrial
+United States,14303756,Service
+China,843061,Agricultural
+China,4899531,Industrial
+China,6463471,Service
+Japan,56764,Agricultural
+Japan,1300833,Industrial
+Japan,3377434,Service
+Germany,27959,Agricultural
+Germany,982067,Industrial
+Germany,2484874,Service
+United Kingdom,18549,Agricultural
+United Kingdom,556477,Industrial
+United Kingdom,2074864,Service
+France,47277,Agricultural
+France,455355,Industrial
+France,1985647,Service
+India,391672,Agricultural
+India,580755,Industrial
+India,1280813,Service
+South Korea,37918,Agricultural
+South Korea,558943,Industrial
+South Korea,807519,Service
+Australia,50266,Agricultural
+Australia,334266,Industrial
+Australia,872108,Service
+Italy,37050,Agricultural
+Italy,448305,Industrial
+Italy,1367145,Service

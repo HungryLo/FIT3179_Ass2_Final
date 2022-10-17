@@ -1,0 +1,39 @@
+{   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500, "height": 350, 
+    "title" : {"text": "GDP per Capita by Region from 2000 to 2010", "fontSize" : 18},
+    "data": {"url": "https://raw.githubusercontent.com/HungryLo/FIT3179_HW4/main/FIT3179_HW_FINAL.csv"},
+    "mark": {
+      "type" :"line",
+      "point": true},
+    "params": [{
+      "name": "Regions",
+      "select": {"type": "point", "fields": ["Continent"]},
+      "bind": "legend"
+    }],
+    
+    "encoding": {
+      "x": {
+        "field": "Year", "type": "nominal"
+      },
+      "y": {
+        "field": "GDP(USD)", "type": "quantitative"
+      },
+      "color": {
+        "field":"Continent",
+        "scale":
+        {"scheme":"dark2"},
+        "legend":{
+          "titleFontSize" : 14,
+          "labelFontSize" : 13
+        }
+      },
+      "opacity": {
+        "condition": {"param": "Regions", "value": 1},
+        "value": 0.2
+      },
+      "tooltip":[
+        {"field":"Year", "type":"nominal"},
+        {"field":"GDP(USD)", "type":"quantitative"} 
+      ]
+    }
+  }

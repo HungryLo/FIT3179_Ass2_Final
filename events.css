@@ -1,0 +1,101 @@
+/* Use class name  */
+.header {
+    padding: 20px; /* some padding */
+    text-align: center; /* center the text */
+    background: #6ad5f3; 
+    color: black; /* black text color */
+  }
+
+/* Increase the font size of the <h1> element */
+.header h1 {
+    font-size: 40px;
+    width: 100%;
+  }
+
+.divider{
+    margin: auto;
+    background: #08446e;
+    font-size: large;
+    padding: 10px;
+    color: white; 
+  }
+  
+.chart1_box{
+    text-align: center;
+}
+
+.chart1{
+    /* margin-left: 100px; */
+    background: none;
+}
+
+.chart2{
+    /* margin-left: 200px; */
+}
+
+.chart3_box{
+    /* Bubble plot */
+    text-align: center;
+}
+
+.chart4{
+    /* margin-left: 200px; */
+}
+
+.text{
+    text-align: center; /* center the text */
+    font-size: larger;
+    color: black;
+}
+
+
+
+.item1 { grid-area: header;}
+.item2 { grid-area: left; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right;}
+.item5 { grid-area: footer; }
+.item6 { grid-area: footer_left; }
+.item7 { grid-area: footer_right; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header header header'
+    'left left left main main right right right'
+    'footer footer footer footer footer footer footer footer';
+  gap: 10px;
+  background-color: rgb(228, 241, 243);
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color:rgb(228, 241, 243);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.grid-container2{
+    display: grid;
+    grid-template-areas:
+        'header header header header header header header header'
+        'left left left main main right right right'
+        'footer_left footer_left footer_left main main footer_right footer_right footer_right';
+    gap: 10px;
+    padding: 10px;
+}
+
+.grid-container2 > div {
+background-color: rgb(84, 60, 218);
+text-align: center;
+padding: 20px 20px;
+font-size: 18px;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.map_text{
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="events.css">
+
+    <!-- Essential Javascript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+
+<!-- Don't touch anything above this -->
+<!-- ########################################################################################################################### -->
+<title>FIT3179 Design Critique</title>
+    <style>
+
+
+        
+    </style>
+</head>
+
+<body style="background-color:rgb(228, 241, 243);">
+    <!-- Topic of domain -->
+    <div class="header">
+    <h1>Economies Around the World</h1>
+    </div>
+
+    <div class = "chart1_box">
+        <div id ="choro_map", class="chart1"></div>
+        <div class = "map_text">
+            <p>The map above shows <span style="color: darkgreen"><b>GDP per Capita</b></span> across the world. </p>
+            <p>We observe that <strong>United States</strong> and <strong>Australia</strong> are some of the richest countries in the world. </p>
+            <p><b>Africa</b> and <b>South America</b> are some of the <span style="color: rgb(197, 63, 22)"><b>poorer regions</b></span> in the world.</p>
+            <p>Furthermore, the <strong>poorest</strong> countries are generally <strong>land-locked</strong>.</p>
+        </div>
+
+    </div>
+    
+    <div class = "divider">
+        <h2>GDP Breakdown</h2>
+    </div>
+
+    <hr>
+    <p></p>
+
+    <!-- <div id="line_chart", class="chart2"></div>
+    <p>The <strong>RICHEST</strong> continent in the world is <strong>North America</strong>, followed by <strong>Europe</strong>.</p>
+    <div id="stack_bar_chart", class="chart4"></div>
+    <p>The <strong>Service</strong> industry dominates the output for all of the countries above.</p>
+    </div>  -->
+
+    
+    <div class="grid-container2">
+        <div class="item2"; style="background-color:rgb(178, 225, 232); border-radius: 30px;">
+            <div id="line_chart", class="chart2"></div>
+        </div>
+        <div class="item4"; style="background-color:rgb(178, 225, 232); border-radius: 30px;">
+            <div id="stack_bar_chart", class="chart4"></div>
+        </div>
+        <div class="item6"; style="background-color:rgb(148, 222, 233); border-radius: 30px;">
+            <p>The <span style="color: rgb(7, 97, 7)"><b>RICHEST</b></span> continent in the world is <strong>North America</strong>, followed by <strong>Europe</strong>.
+            Over the years, each region's GDP has increased significantly, except for <strong>Africa</strong>. Some possible reasons include corrupt 
+            leaders and civil unrest. The <span style="color: rgb(196, 62, 32)"><b>Financial Crisis in 2008</b></span> had caused the GDP of several regions to drop sharply.
+            </p>
+        </div>
+        <div class="item7"; style="background-color:rgb(148, 222, 233); border-radius: 30px;">
+            <p>For all of the countries above, the <strong>service</strong> industry is the major contributor to its GDP, followed by
+                <strong>industrial</strong> and <strong>agricultural</strong>.
+            <strong>Agricultural</strong> industry tends to contribute less than 3% to a country's GDP, with the exception of 
+            <strong>China (7%)</strong> and <strong>India (17%)</strong>    . 
+            </p>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="item2">
+            <div id="donut_chart_1", class="chart5"></div>
+        </div>
+        <div class="item3">
+            <div class = "map_text", style="padding: 20px;">
+                <p>China and US are the two greatest economies in the world. Both countries spend a similar amount (A difference of 5%)
+                    for categories such as transportation, general government and and social security.</p>
+                    China spends a lot more on <strong> education </strong> while US spends a lot more on <strong>healthcare</strong>.
+                    Additionally, US has the <span style="color: rgb(230, 56, 17)"><b>highest military</b></span> budget in the world.
+            </div>
+        </div>
+        <div class="item4">
+            <div id="donut_chart_2", class="chart6"></div>
+        </div>
+    </div>
+
+
+    <div class = "divider">
+        <h2>The Effects of GDP</h2>
+    </div>
+    
+    <hr>
+
+    <div class = "chart3_box">
+        <div id="bubble_chart", class="chart3"></div>
+            <div class = "map_text">
+                <p><span style="color: rgb(230, 56, 17)"><b>Poorer</b></span> countries tend to have a <span style="color: rgb(230, 56, 17)"><b>shorter</b></span> life expectancy 
+                    while <span style="color: rgb(6, 84, 11)"><b>richer</b></span> countries tend to have a <span style="color: rgb(6, 84, 11)"><b>longer</b></span> life expectancy.</p>
+                <p>However, it is worth nothing that a large difference in GDP does not necessarily translate to a large difference in life expectancy.</p>
+                <p>In other words, there are <span style="color: rgb(15, 29, 138)"><b>other factors other than GDP</b></span> that contribute to life expectancy.</p>
+                <p>Some of those factors include gender, diet, genetics, lifestyle, exercise, crime rate and others.</p>
+            </div>
+            
+    </div>
+    
+    
+
+    <!-- Run the Javascript -->
+    <script src="vegalite_vis.JS"></script>
+
+</body>
+
+</html>
+
+
+    <!-- <div id="line_chart", class="chart2"></div> -->
+    <!-- <div id="bubble_chart", class="chart3"></div> -->
+

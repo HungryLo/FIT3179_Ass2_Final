@@ -1,0 +1,328 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 500,
+  "title": "Relationship between GDP and Life Expectancy",
+  "data": {
+    "url": "https://raw.githubusercontent.com/HungryLo/FIT3179_Ass2/main/bubble_chart_data.csv"
+  },
+  "params": [
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 100000000,
+        "step": 1000000,
+        "name": "Minimum Population: "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Asia",
+          "Americas",
+          "Europe",
+          "Africa",
+          "Oceania"
+        ],
+        "labels": [
+          "Show All",
+          "Asia",
+          "Americas",
+          "Europe",
+          "Africa",
+          "Oceania"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Population > Population_Above"},
+    {
+      "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "GDP(USD)",
+      "type": "quantitative",
+      "title": "GDP per Capita (USD)",
+      "axis": {"tickCount": 7}
+    },
+    "y": {
+      "field": "Life expectancy",
+      "type": "quantitative",
+      "title": "Life expectancy (Years)",
+      "axis": {"tickCount": 6}, 
+      "scale":{"domain": [35,85]}
+    }
+  },
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Population",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [10000000, 100000000, 500000000],
+            "range": [30, 150, 400, 700]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Asia",
+              "Americas",
+              "Europe",
+              "Africa",
+              "Oceania"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8"
+            ]
+          }
+        },
+        "opacity": {"value": 0.6},
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {
+            "field": "GDP(USD)",
+            "type": "quantitative",
+            "format": ","
+          },
+          {
+            "field": "Life expectancy",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 12.0,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'South Africa' || datum['Country'] == 'Mexico' || datum['Country'] == 'Thailand' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'Japan' || datum['Country'] == 'Nigeria' || datum['Country'] == 'Yemen' ||  datum['Country'] == 'United States' || datum['Country'] == 'Iraq' || datum['Country'] == 'Portugal' || datum['Country'] == 'Saudi Arabia'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {
+            "field": "GDP(USD)",
+            "type": "quantitative",
+            "format": ","
+          },
+          {
+            "field": "Life expectancy",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'South Africa'"},
+        {
+          "calculate": "\"South Africa's life expectancy\"",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": -15,
+        "dx": 20,
+        "fontSize": 12,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'South Africa'"},
+        {
+          "calculate": "'is 50 years,'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 0,
+        "dx": 20,
+        "fontSize": 12,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'South Africa'"},
+        {
+          "calculate": "'20 years shorter '",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 0,
+        "dx": 85,
+        "fontSize": 12,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "red"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'South Africa'"},
+        {
+          "calculate": "'than Lebanon despite similar GDP.'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 15,
+        "dx": 20,
+        "fontSize": 12,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'Saudi Arabia'"},
+        {
+          "calculate": "'Saudi Arabia has a'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 15,
+        "dx": 20,
+        "fontSize": 12,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'Saudi Arabia'"},
+        {
+          "calculate": "'lower life expectancy'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 15,
+        "dx": 125,
+        "fontSize": 12,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "red"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'Saudi Arabia'"},
+        {
+          "calculate": "'than its peers possibly due to'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 25,
+        "dx": 20,
+        "fontSize": 12,
+        "fontStyle": "san-serif"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Country == 'Saudi Arabia'"},
+        {
+          "calculate": "'WARS'",
+          "as": "SA_text"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dy": 25,
+        "dx": 180,
+        "fontSize": 12,
+        "fontStyle": "san-serif",
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {"field": "SA_text"},
+        "color": {"value": "RED"}
+      }
+    }
+  ]
+}

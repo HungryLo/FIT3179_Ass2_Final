@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title" : {"text": "Spending Breakdown for China in 2021", "fontSize" : 18},
+    "width" : 300,
+    "height": 300,
+    "data": {
+        "url" : "China_donut_data.csv"
+    },
+    "mark": {"type": "arc", "innerRadius": 50},
+    "encoding": {
+      "theta": {"field": "Amount", "type": "quantitative"},
+      "color": {
+        "field": "Category", 
+        "type": "nominal",
+        "scale":
+        {
+          "scheme":"dark2"
+        },
+        "legend":{
+          "titleFontSize" : 14,
+          "labelFontSize" : 13
+        }
+      },
+      "tooltip": [
+        {"field": "Category", "type": "nominal"},
+        {
+          "field": "Amount",
+          "type": "quantitative",
+          "format": ".0%"
+        }
+      ]
+    }
+
+    }
+  
